@@ -9,7 +9,6 @@ import (
 //https://tour.golang.org/flowcontrol/8 solution of this question
 func Sqrt(x float64) float64 {
 	z := 1.0
-	_ = z
 	for counter := 1; counter < 10; counter++ {
 		fmt.Println("X : ", x, "Z : ", z, " total: ", x-z*z)
 		if x-z*z < 0.001 && x-z*z >= 0 {
