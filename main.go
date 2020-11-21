@@ -1,30 +1,19 @@
 package main
 
-import (
-	"fmt"
-	"os"
-	"strconv"
-)
+import "fmt"
 
-//https://tour.golang.org/flowcontrol/8 solution of this question
-func Sqrt(x float64) float64 {
-	z := 1.0
-	for counter := 1; counter < 10; counter++ {
-		fmt.Println("X : ", x, "Z : ", z, " total: ", x-z*z)
-		if x-z*z < 0.001 && x-z*z >= 0 {
-			fmt.Println("Eureka: ", z)
-			return z
-		} else {
-			z -= (z*z - x) / (2 * z)
-		}
-	}
-	return z
+type User struct {
+	name    string
+	surname string
+	age     int
 }
 
 func main() {
-	if s, err := strconv.ParseFloat(os.Args[1], 64); err == nil {
-		fmt.Printf("Result : %v\n", Sqrt(s))
-	} else {
-		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-	}
+	user1 := User{name: "Serdar", surname: "Cetger", age: 18}
+	user2 := User{name: "Serdar", surname: "Cetger", age: 25}
+	//we dont need temp variable to exchange :*(
+	user1.age, user2.age = user2.age, user1.age
+	fmt.Println(user1)
+	fmt.Println(user2)
+
 }
